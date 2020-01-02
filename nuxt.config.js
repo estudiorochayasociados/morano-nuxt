@@ -65,7 +65,7 @@ export default {
   },
   env: {
     baseUrl: 'http://localhost:3000',
-    //apiUrl: 'https://meli-nodejs-morano.herokuapp.com',
-    apiUrl: 'http://localhost:8000'
+    apiUrl: 'https://meli-nodejs-morano.herokuapp.com'
+    //apiUrl: 'http://localhost:8000'
   }
 }
