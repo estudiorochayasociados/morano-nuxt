@@ -1,42 +1,45 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 ">
-      <div class="container">
-        <a class="navbar-brand" href="#">Meli OS</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar is-warning" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item fs-20">MeliOS</a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class = "navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
-                <i class="fa fa-home"></i>
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/meli/add">AGREGAR A MERCADOLIBRE</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/meli/update">ACTUALIZAR MERCADOLIBRE</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/products">PRODUCTOS</a>
-            </li>
-          </ul>
+        <a
+          role="button"
+          class="navbar-burger burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu text-uppercase">
+        <div class="navbar-end">
+          <a class="navbar-item fs-14" href="/">Home</a>
+
+          <a class="navbar-item fs-14" href="/products">Productos</a>
+
+          <div class="navbar-item fs-14 has-dropdown is-hoverable">
+            <a class="navbar-link">Mercadolibre</a>
+            <div class="navbar-dropdown is-right">
+              <a class="navbar-item fs-14" href="/meli/add">Agregar Productos</a>
+              <a class="navbar-item fs-14" href="/meli/update">Modificar Productos</a>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
+    <div class="has-background-dark"></div>
     <nuxt />
   </div>
 </template>
  
+ <script>
+export default {
+  middleware: "auth"
+};
+</script>

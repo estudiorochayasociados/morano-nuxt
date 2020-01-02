@@ -1,8 +1,7 @@
 <template>
   <div class="container">
-    <h1 class="title mt-20">Productos ({{ products.length }})</h1>
-    <h2 class="subtitle">Listado de productos en tu desarrollo web</h2>
-    <hr/>
+    <MessageComponent v-bind:text="messageText" v-bind:status="messageStatus" />
+    <h4 class="mt-20">Total de Productos: {{ products.length }}</h4>
     <table class="table is-fullwidth mt-20">
       <thead>
         <th>Producto</th>
@@ -18,11 +17,17 @@
 
 <script>
 import axios from "axios";
+import MessageComponent from "../components/MessageComponent";
 export default {
   data() {
     return {
-      products: []
+      products: [],
+      messageText: '',
+      messageStatus: ''
     };
+  },
+  components: {
+      MessageComponent
   },
   async mounted() {
     const products = await axios.get(process.env.apiUrl + "/product", this.$cookies.get("header-token"));

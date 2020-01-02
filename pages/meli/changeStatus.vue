@@ -40,7 +40,7 @@ export default {
     };
   },
   async mounted() {
-    const products = await axios.get("https://meli-nodejs-morano.herokuapp.com/product");
+    const products = await axios.get(process.env.apiUrl + "/product");
     this.products = products.data;    
   },
   methods: {
@@ -48,7 +48,7 @@ export default {
       await this.$data.products.forEach(async product => {
         await product.mercadolibre.forEach(async meli => {
           const meliPostItem = await axios.put(
-            "https://meli-nodejs-morano.herokuapp.com/mercadolibre/change-status/" + meli.code,
+            process.env.apiUrl + "/mercadolibre/change-status/" + meli.code,
             {
               status: "paused"
             }
