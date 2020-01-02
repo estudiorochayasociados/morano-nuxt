@@ -36,7 +36,7 @@ export default {
       var element = document.getElementById(id);
       element.classList.add("d-block");
     },
-    updateProducts : function() {
+    updateProducts : async function() {
       await axios.get(process.env.apiUrl + "/product/update-products-with-web", this.$cookies.get("header-token"));
       const products = await axios.get(process.env.apiUrl + "/product", this.$cookies.get("header-token"));
       this.products = products.data;
